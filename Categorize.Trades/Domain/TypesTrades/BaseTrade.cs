@@ -1,10 +1,10 @@
-using Categorize.Trades.Domain.Enum;
+using Categorize.Trades.Domain.Enums;
 
-namespace Categorize.Trades.Domain;
+namespace Categorize.Trades.Domain.TypesTrades;
 
-public class TradeBase : ITrade
+public class BaseTrade : ITrade
 {
-    public TradeBase(string value, string clientSector, string nextPaymentDate, DateTime referDate)
+    public BaseTrade(string value, string clientSector, string nextPaymentDate, DateTime referDate)
     {
         Value = double.Parse(value);
         ClientSector = clientSector;

@@ -1,14 +1,14 @@
-using Categorize.Trades.Domain.Enum;
+using Categorize.Trades.Domain.Enums;
 
-namespace Categorize.Trades.Domain.TypesTrade;
+namespace Categorize.Trades.Domain.TypesTrades;
 
 public class HighRiskTrade : ITrade
 {
-    public HighRiskTrade(TradeBase tradeBase)
+    public HighRiskTrade(BaseTrade baseTrade)
     {
-        Value = tradeBase.Value;
-        ClientSector = tradeBase.ClientSector;
-        NextPaymentDate = tradeBase.NextPaymentDate;
+        Value = baseTrade.Value;
+        ClientSector = baseTrade.ClientSector;
+        NextPaymentDate = baseTrade.NextPaymentDate;
         Risk = ERisk.HIGHRISK;
     }
 

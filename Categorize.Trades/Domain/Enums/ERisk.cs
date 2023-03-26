@@ -1,4 +1,4 @@
-namespace Categorize.Trades.Domain.Enum;
+namespace Categorize.Trades.Domain.Enums;
 
 public enum ERisk
 {

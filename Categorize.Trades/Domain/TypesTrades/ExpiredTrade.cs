@@ -1,14 +1,14 @@
-using Categorize.Trades.Domain.Enum;
+using Categorize.Trades.Domain.Enums;
 
-namespace Categorize.Trades.Domain.TypesTrade;
+namespace Categorize.Trades.Domain.TypesTrades;
 
 public class ExpiredTrade : ITrade
 {
-    public ExpiredTrade(TradeBase tradeBase)
+    public ExpiredTrade(BaseTrade baseTrade)
     {
-        Value = tradeBase.Value;
-        ClientSector = tradeBase.ClientSector;
-        NextPaymentDate = tradeBase.NextPaymentDate;
+        Value = baseTrade.Value;
+        ClientSector = baseTrade.ClientSector;
+        NextPaymentDate = baseTrade.NextPaymentDate;
         Risk = ERisk.EXPIRED;
     }
 

@@ -1,4 +1,4 @@
-using Categorize.Trades.Domain.Enum;
+using Categorize.Trades.Domain.Enums;
 
 namespace Categorize.Trades.Domain;
 

@@ -1,24 +1,45 @@
-using Categorize.Trades.Domain.TypesTrade;
+using Categorize.Trades.Data;
+using Categorize.Trades.Domain.Enums;
+using Categorize.Trades.Domain.TypesTrades;
+using Categorize.Trades.Utils;
 
 namespace Categorize.Trades.Domain;
 
 public class TradeFactory : ITradeFactory
 {
-    public ITrade CreateObject(TradeBase tradeBase)
+    public ITrade CreateObject(BaseTrade baseTrade)
     {
-        if (IsExpiredTrade(tradeBase))
-            return new ExpiredTrade(tradeBase);
+        if (IsExpiredTrade(baseTrade))
+            return new ExpiredTrade(baseTrade);
 
-        return LevelRisck(tradeBase);
+        return LevelRisk(baseTrade);
     }
 
-    private static ITrade LevelRisck(TradeBase tradeBase)
+    private static ITrade LevelRisk(BaseTrade baseTrade)
     {
-        return new HighRiskTrade(tradeBase);
+        var clientSector = baseTrade.ClientSector.ParseEnum<EClientSector>();
+        return clientSector switch
+        {
+            EClientSector.PRIVATE => ProcessPrivateSector(baseTrade),
+            EClientSector.PUBLIC => ProcessPublicSector(baseTrade),
+            _ => baseTrade
+        };
     }
 
-    private static bool IsExpiredTrade(TradeBase tradeBase) => 
-        (tradeBase.ReferDate - tradeBase.NextPaymentDate).TotalDays > 30;
-    
-    
+    private static ITrade ProcessPrivateSector(BaseTrade baseTrade)
+    {
+        return baseTrade.Value > Constants.ValuesInput.ValueToBeCompare
+            ? new HighRiskTrade(baseTrade)
+            : baseTrade;
+    }
+
+    private static ITrade ProcessPublicSector(BaseTrade baseTrade)
+    {
+        return baseTrade.Value > Constants.ValuesInput.ValueToBeCompare
+            ? new MediumRiskTrade(baseTrade)
+            : baseTrade;
+    }
+
+    private static bool IsExpiredTrade(BaseTrade baseTrade) =>
+        (baseTrade.ReferDate - baseTrade.NextPaymentDate).TotalDays > 30;
 }
