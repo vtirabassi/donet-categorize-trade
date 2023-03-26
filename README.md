@@ -13,5 +13,5 @@ Follow the steps bellow to add a new risk type:<br>
 4. Run the application.
 
 ### Example
-You can seee an exemple how add a new risk type in the branch: **feature/adding-new-risk**
+You can seee an exemple how add a new risk type in the branch: **feature/adding-new-risk**<br>
 For a best preview, you can create a pull-request for the see what werer added.
