@@ -5,5 +5,6 @@ public enum ERisk
     UNDEFINED,
     EXPIRED,
     HIGHRISK,
-    MEDIUMRISK
+    MEDIUMRISK,
+    PEP
 }

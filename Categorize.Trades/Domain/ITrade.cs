@@ -8,4 +8,5 @@ public interface ITrade
     string ClientSector { get; }
     DateTime NextPaymentDate { get; }
     ERisk Risk { get; }
+    bool IsPoliticalllyExposed { get; }
 }

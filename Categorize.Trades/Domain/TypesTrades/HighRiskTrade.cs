@@ -16,6 +16,7 @@ public class HighRiskTrade : ITrade
     public string ClientSector { get; }
     public DateTime NextPaymentDate { get; }
     public ERisk Risk { get; }
+    public bool IsPoliticalllyExposed { get; }
 
     public override string ToString()
     {

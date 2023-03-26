@@ -9,6 +9,9 @@ public class TradeFactory : ITradeFactory
 {
     public ITrade CreateObject(BaseTrade baseTrade)
     {
+        if (baseTrade.IsPoliticalllyExposed)
+            return new PepRiskTrade(baseTrade);
+        
         if (IsExpiredTrade(baseTrade))
             return new ExpiredTrade(baseTrade);
 

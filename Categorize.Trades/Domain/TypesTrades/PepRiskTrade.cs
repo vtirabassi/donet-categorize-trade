@@ -2,14 +2,15 @@ using Categorize.Trades.Domain.Enums;
 
 namespace Categorize.Trades.Domain.TypesTrades;
 
-public class ExpiredTrade : ITrade
+public class PepRiskTrade : ITrade
 {
-    public ExpiredTrade(BaseTrade baseTrade)
+    public PepRiskTrade(BaseTrade baseTrade)
     {
         Value = baseTrade.Value;
         ClientSector = baseTrade.ClientSector;
         NextPaymentDate = baseTrade.NextPaymentDate;
-        Risk = ERisk.EXPIRED;
+        Risk = ERisk.PEP;
+        IsPoliticalllyExposed = true;
     }
 
     public double Value { get; }
