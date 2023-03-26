@@ -41,5 +41,5 @@ public class TradeFactory : ITradeFactory
     }
 
     private static bool IsExpiredTrade(BaseTrade baseTrade) =>
-        (baseTrade.ReferDate - baseTrade.NextPaymentDate).TotalDays > 30;
+        (Constants.ValuesInput.DateRefer - baseTrade.NextPaymentDate).TotalDays > 30;
 }

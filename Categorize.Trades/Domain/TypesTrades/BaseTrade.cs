@@ -4,19 +4,16 @@ namespace Categorize.Trades.Domain.TypesTrades;
 
 public class BaseTrade : ITrade
 {
-    public BaseTrade(string value, string clientSector, string nextPaymentDate, DateTime referDate)
+    public BaseTrade(IReadOnlyList<string> parts)
     {
-        Value = double.Parse(value);
-        ClientSector = clientSector;
-        NextPaymentDate = DateTime.Parse(nextPaymentDate);
+        Value = double.Parse(parts[0]);
+        ClientSector = parts[1];
+        NextPaymentDate = DateTime.Parse(parts[2]);
         Risk = ERisk.UNDEFINED;
-        ReferDate = referDate;
     }
     
     public double Value { get; }
     public string ClientSector { get; }
     public DateTime NextPaymentDate { get; }
     public ERisk Risk { get; }
-
-    public DateTime ReferDate { get; }
 }
