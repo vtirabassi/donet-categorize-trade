@@ -14,3 +14,4 @@ Follow the steps bellow to add a new risk type:<br>
 
 ### Example
 You can seee an exemple how add a new risk type in the branch: **feature/adding-new-risk**
+For a best preview, you can create a pull-request for the see what werer added.
