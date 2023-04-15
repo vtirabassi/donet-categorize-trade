@@ -1,5 +1,5 @@
-﻿using Categorize.Trades.Domain;
-using Categorize.Trades.Domain.TypesTrades;
+﻿using Categorize.Trades.Application.Services.Impl;
+using Categorize.Trades.Domain.Entities;
 
 var pathFile = string.Concat(Directory.GetCurrentDirectory(), "../../../../Data/tradesInput.txt");
 
@@ -13,9 +13,8 @@ foreach (var line in lines)
     if (parts.Length is 1)
         continue;
     
-    var tradeBase = new BaseTrade(parts);
-    var tradeFactory = new TradeFactory();
-    var trade = tradeFactory.CreateObject(tradeBase);
+    var tradeService = new TradeService();
+    var tradeRisk = tradeService.GetTradeRisk(new BaseTrade(parts));
 
-    Console.WriteLine(trade.Risk);
+    Console.WriteLine(tradeRisk);
 }

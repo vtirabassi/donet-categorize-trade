@@ -10,15 +10,27 @@
     <ItemGroup>
       <None Remove="Domain" />
       <None Remove="Services\**" />
+      <None Remove="Domain\Strategies\**" />
     </ItemGroup>
 
     <ItemGroup>
       <Compile Remove="Domain\TradeProcess.cs" />
       <Compile Remove="Services\**" />
+      <Compile Remove="Domain\TypesTrades\ExpiredTrade.cs" />
+      <Compile Remove="Domain\TypesTrades\HighRiskTrade.cs" />
+      <Compile Remove="Domain\TypesTrades\MediumRiskTrade.cs" />
+      <Compile Remove="Domain\Models\ExpiredTrade.cs" />
+      <Compile Remove="Domain\Models\HighRiskTrade.cs" />
+      <Compile Remove="Domain\Models\MediumRiskTrade.cs" />
+      <Compile Remove="Domain\Entities\ExpiredTrade.cs" />
+      <Compile Remove="Domain\Entities\HighRiskTrade.cs" />
+      <Compile Remove="Domain\Entities\MediumRiskTrade.cs" />
+      <Compile Remove="Domain\Strategies\**" />
     </ItemGroup>
 
     <ItemGroup>
       <EmbeddedResource Remove="Services\**" />
+      <EmbeddedResource Remove="Domain\Strategies\**" />
     </ItemGroup>
 
 </Project>

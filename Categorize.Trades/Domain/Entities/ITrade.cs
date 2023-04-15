@@ -1,11 +1,8 @@
-using Categorize.Trades.Domain.Enums;
-
-namespace Categorize.Trades.Domain;
+namespace Categorize.Trades.Domain.Entities;
 
 public interface ITrade
 {
     double Value { get; }
     string ClientSector { get; }
     DateTime NextPaymentDate { get; }
-    ERisk Risk { get; }
 }

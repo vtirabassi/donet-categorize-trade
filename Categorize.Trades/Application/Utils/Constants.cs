@@ -1,4 +1,4 @@
-namespace Categorize.Trades.Data;
+namespace Categorize.Trades.Application.Utils;
 
 public static class Constants
 {
